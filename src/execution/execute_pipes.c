@@ -6,7 +6,7 @@
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:44:03 by vfries            #+#    #+#             */
-/*   Updated: 2023/02/19 16:42:10 by vfries           ###   ########lyon.fr   */
+/*   Updated: 2023/02/28 02:22:11 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ static int	fork_and_execute_command_no_pipe(t_minishell *minishell,
 	ft_lstclear(&minishell->tokens, &free_token);
 	minishell->tokens = sub_tokens;
 	execute_command_no_pipe(minishell, true);
+	free_minishell(minishell);
 	exit(exit_code(GET));
 }
